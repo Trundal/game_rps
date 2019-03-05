@@ -1,0 +1,27 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.intro {
+  padding: 10px;
+  max-width: 550px;
+  min-width: 300px;
+  box-sizing: border-box;
+}
+
+.intro p {
+  margin: 20px 0;
+}
+
+.buttonBlock {
+  width: 100%;
+  max-width: 600px;
+  min-width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}

@@ -4,6 +4,8 @@ import Header from '../components/Header'
 import Results from '../components/Results'
 import Button from '../components/UIElements/Button'
 
+import styles from './Game_RPS.module.css'
+
 const Game_RPS = () => {
   const [results, setResults] = useState(false);
   const [history, setHistory] = useState([]);
@@ -56,25 +58,32 @@ const Game_RPS = () => {
   }
 
   return (
-    <div>
-    { results ?
-      <Results
-        gameResults={history}
-        replay={() => replay()}
-        resetHistory = {() => resetHistory()}
+    <div className={ styles.main }>
+      <Header />
+      { results ?
+        <Results
+          gameResults={history}
+          replay={() => replay()}
+          resetHistory = {() => resetHistory()}
         /> :
-      <div>
-        <Header />
-        { options.map((option, index) =>
-            <Button
-              key={index}
-              text={option}
-              clicked={() => selectOption(option)}
-            />
-          )
-        }
-      </div>
-    }
+        <>
+          <div className={ styles.intro }>
+            <p>Welcome to the classic game of Rock-Paper-Scissors!
+            In this game, you can test your fate against the computer.
+            Remember... Paper covers Rock, Rock crushes Scissors, Scissors cut Paper.
+            Choose carefully!</p>
+          </div>
+          <div className={ styles.buttonBlock }>
+            { options.map((option, index) =>
+              <Button
+                key={index}
+                text={option}
+                clicked={() => selectOption(option)}
+              />
+            )}
+          </div>
+        </>
+      }
     </div>
   );
 

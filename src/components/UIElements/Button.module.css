@@ -1,31 +1,18 @@
 .button {
   text-align: center;
   padding: 10px;
-  width: 100px;
+  width: 150px;
   border-radius: 3px;
   cursor: pointer;
   border: 1px solid black;
   text-decoration: none;
   color: black;
   transition: .2s;
+  margin: auto;
 }
 
 .button:hover {
     color: white;
     background-color: #333;
     border: 1px solid #ddd
-}
-
-.disabled {
-  text-align: center;
-  padding: 10px;
-  width: 100px;
-  border-radius: 3px;
-  border: 1px solid grey;
-  text-decoration: none;
-  color: grey;
-}
-
-.hidden {
-  display: hidden
 }
