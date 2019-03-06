@@ -1,0 +1,26 @@
+.gameHistory {
+  margin: auto;
+  list-style: none;
+  padding: 0;
+  width: 300px;
+}
+
+.history {
+  composes: card from './__theme.css';
+  width: 100%;
+  margin: 20px auto;
+  padding: 10px 0;
+  box-sizing: border-box;
+  font-size: .8em;
+}
+
+.faint {
+  opacity: .7;
+  font-size: .9em;
+}
+
+@media (max-width: 500px) {
+	.gameHistory {
+		width: 100%;
+	}
+}

@@ -1,0 +1,13 @@
+.highlight {
+  font-size: 1.1em;
+  color: red;
+}
+
+.highlight span {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.regular span {
+  font-weight: bold;
+}

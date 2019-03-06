@@ -3,6 +3,7 @@
   width: 100%;
   background-color: #eee;
   text-align: center;
+  box-sizing: border-box
 }
 
 .title {

@@ -8,11 +8,18 @@
   text-decoration: none;
   color: black;
   transition: .2s;
-  margin: auto;
+  margin: 10px auto;
+  box-sizing: border-box;
 }
 
 .button:hover {
     color: white;
     background-color: #333;
     border: 1px solid #ddd
+}
+
+@media (max-width: 500px) {
+	.button {
+		width: 100%;
+	}
 }

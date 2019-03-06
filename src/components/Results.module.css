@@ -3,61 +3,13 @@
   width: 100%;
   text-align: center;
   margin: auto;
-}
-
-.title {
-  color: red;
-  padding: 0;
-  margin: 0;
-}
-
-.title span {
-  font-weight: bold;
-  text-transform: uppercase;
+  box-sizing: border-box;
 }
 
 .result {
   margin: 20px 0;
 }
 
-.selection span {
-  font-weight: bold;
-}
-
 .historyWrapper {
   margin: 20px 0;
-}
-
-.gameHistory {
-  margin: auto;
-  list-style: none;
-  padding: 0;
-  width: 300px;
-}
-
-.history {
-  composes: card from './__theme.css';
-  width: 100%;
-  margin: 20px auto;
-  padding: 10px 0;
-  box-sizing: border-box;
-}
-
-.highlight {
-  font-size: 1.1em;
-  color: red;
-}
-
-.highlight span {
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.regular span {
-  font-weight: bold;
-}
-
-.faint {
-  opacity: .7;
-  font-size: .9em;
 }

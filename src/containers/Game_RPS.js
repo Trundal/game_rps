@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import Header from '../components/Header'
+import Intro from '../components/Intro'
 import Results from '../components/Results'
 import Button from '../components/UIElements/Button'
 
@@ -58,8 +59,9 @@ const Game_RPS = () => {
   }
 
   return (
-    <div className={ styles.main }>
-      <Header />
+      <>
+      <Header text="Welcome to: Rock Paper Scissors!"/>
+      <div className={ styles.main }>
       { results ?
         <Results
           gameResults={history}
@@ -67,12 +69,7 @@ const Game_RPS = () => {
           resetHistory = {() => resetHistory()}
         /> :
         <>
-          <div className={ styles.intro }>
-            <p>Welcome to the classic game of Rock-Paper-Scissors!
-            In this game, you can test your fate against the computer.
-            Remember... Paper covers Rock, Rock crushes Scissors, Scissors cut Paper.
-            Choose carefully!</p>
-          </div>
+          <Intro />
           <div className={ styles.buttonBlock }>
             { options.map((option, index) =>
               <Button
@@ -84,7 +81,8 @@ const Game_RPS = () => {
           </div>
         </>
       }
-    </div>
+      </div>
+    </>
   );
 
 }

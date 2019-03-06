@@ -1,0 +1,10 @@
+.intro {
+  padding: 10px;
+  max-width: 550px;
+  min-width: 300px;
+  box-sizing: border-box;
+}
+
+.intro p {
+  margin: 20px 0;
+}
