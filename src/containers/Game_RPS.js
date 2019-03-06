@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
+import { selectOption } from '../store/actions/index';
 import Header from '../components/Header'
 import Intro from '../components/Intro'
 import Results from '../components/Results'
@@ -7,84 +9,49 @@ import Button from '../components/UIElements/Button'
 
 import styles from './Game_RPS.module.css'
 
-const Game_RPS = () => {
-  const [results, setResults] = useState(false);
-  const [history, setHistory] = useState([]);
+class GameRPS extends Component {
 
-  const options = ["Rock", "Paper", "Scissors"]
+    render () {
 
-  const whoWon = (playerChoice="", computerChoice="") => {
-    if (playerChoice === computerChoice) {
-      return "tie";
-    } else {
-      switch (playerChoice) {
-        case "Rock": {
-          if(computerChoice === "Scissors") return "player"
-          else return "computer"
-        }
-        case "Paper": {
-          if(computerChoice === "Rock") return "player"
-          else return "computer"
-        }
-        case "Scissors": {
-          if(computerChoice === "Paper") return "player"
-          else return "computer"
-        }
-        default: {
-          return "error: unexpected results"
-        }
-      }
-    }
-  }
-
-  const selectOption = (selection="") => {
-    const computerSelection = options[Math.floor(Math.random() * 3)];
-    let myHistory=history;
-    myHistory.push({
-      playerSelection: selection,
-      computerSelection: computerSelection,
-      winner: whoWon(selection, computerSelection)
-    })
-    setHistory(myHistory)
-    setResults(true)
-  }
-
-  const replay = () => {
-    setResults(false)
-  }
-
-  const resetHistory = () => {
-    setHistory([])
-    setResults(false)
-  }
-
-  return (
-      <>
-      <Header text="Welcome to: Rock Paper Scissors!"/>
-      <div className={ styles.main }>
-      { results ?
-        <Results
-          gameResults={history}
-          replay={() => replay()}
-          resetHistory = {() => resetHistory()}
-        /> :
-        <>
-          <Intro />
-          <div className={ styles.buttonBlock }>
-            { options.map((option, index) =>
-              <Button
-                key={index}
-                text={option}
-                clicked={() => selectOption(option)}
-              />
-            )}
+      return (
+          <>
+          <Header text="Welcome to: Rock Paper Scissors!"/>
+          <div className={ styles.main }>
+          { this.props.results
+            ?
+            <Results/>
+            :
+            <>
+              <Intro />
+              <div className={ styles.buttonBlock }>
+                { this.props.options.map((option, index) =>
+                  <Button
+                    key={index}
+                    text={option}
+                    clicked={() => this.props.selectOption(option)}
+                  />
+                )}
+              </div>
+            </>
+          }
           </div>
         </>
-      }
-      </div>
-    </>
-  );
+      );
+    }
 
 }
 
-export default Game_RPS;
+const mapStateToProps = state => {
+	return {
+		results: state.results,
+    options: state.options
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+    selectOption: (option) => dispatch(selectOption(option))
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GameRPS);
