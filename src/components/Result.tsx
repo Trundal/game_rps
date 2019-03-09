@@ -2,7 +2,15 @@ import React from 'react';
 
 import styles from './Result.module.css';
 
-const Result = ( { result={} } ) => {
+interface IResult {
+  result: {
+    winner: string;
+    playerSelection: string;
+    computerSelection: string;
+  } 
+}
+
+const Result = ( {result = { winner: "", playerSelection: "", computerSelection: "" } }: IResult ) => {
 
   return (
     <>

@@ -43,8 +43,8 @@ class GameRPS extends Component {
 
 const mapStateToProps = state => {
 	return {
-		results: state.results,
-    options: state.options
+		results: state.game.results,
+    options: state.game.options
 	}
 }
 

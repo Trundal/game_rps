@@ -31,7 +31,7 @@ class Results extends Component {
 
 const mapStateToProps = state => {
 	return {
-    history: state.history
+    history: state.game.history
 	}
 }
 

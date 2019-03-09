@@ -1,3 +1,0 @@
-export const TOGGLE_RESULTS = 'TOGGLE_RESULTS';
-export const CLEAR_HISTORY = 'CLEAR_HISTORY';
-export const SELECT_OPTION = 'SELECT_OPTION';
