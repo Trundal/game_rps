@@ -1,36 +1,20 @@
 import * as actionTypes from './actionTypes';
 
-export interface IToggleResults {
-  type: actionTypes.TOGGLE_RESULTS;
-}
-
-export interface IClearHistory {
-  type: actionTypes.CLEAR_HISTORY;
-}
-
-export interface ISelectOption {
-  type: actionTypes.SELECT_OPTION;
-  option: string;
-}
-
-export type gameActions = IToggleResults | IClearHistory | ISelectOption;
-
-
-export const toggleResults = ():IToggleResults => {
+export const toggleResults = ():actionTypes.IToggleResults => {
   return {
       type: actionTypes.TOGGLE_RESULTS
   };
 };
 
-export const clearHistory = ():IClearHistory => {
+export const clearHistory = ():actionTypes.IClearHistory => {
   return {
       type: actionTypes.CLEAR_HISTORY
   };
 };
 
-export const selectOption = (option: string):ISelectOption => {
+export const selectOption = (option: string):actionTypes.ISelectOption => {
   return {
       type: actionTypes.SELECT_OPTION,
-      option: option
+      option
   };
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import styles from './Button.module.css';
-import { string } from 'prop-types';
 
 interface IButton {
     text: string,

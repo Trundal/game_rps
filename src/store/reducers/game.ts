@@ -1,32 +1,20 @@
 import * as actionTypes from '../actions/actionTypes';
-import { gameActions } from '../actions/game'
+import * as storeState from './storeState';
 import { updateObject, random, whoWon } from '../utility';
 
-interface IGameState {
-  results: boolean,
-  options: string[],
-  history: any[]
-}
-
-const initialState: IGameState = {
-  results: false,
-  options: ["Rock", "Paper", "Scissors"],
-  history: []
-};
-
-const toggleResults = (state: IGameState) => {
+const toggleResults = (state: storeState.IGameState):storeState.IGameState => {
   let newState = state;
   newState.results = !state.results
   return updateObject(state, newState);
 };
 
-const addToHistory = (state: IGameState, result: any) => {
+const addToHistory = (state: storeState.IGameState, result: any):storeState.IGameState => {
   let newHistory = state.history;
   newHistory.push(result);
   return updateObject(state, newHistory);
 };
 
-const selectOption = (state: IGameState, action: { option: string } ) => {
+const selectOption = (state: storeState.IGameState, action: { option: string } ):storeState.IGameState => {
   const computerSelection = state.options[random(3, 0)];
   const myResults={
     playerSelection: action.option,
@@ -39,7 +27,10 @@ const selectOption = (state: IGameState, action: { option: string } ) => {
   return updateObject(state, newState);
 };
 
-const reducer = (state = initialState, action: gameActions):IGameState => {
+const reducer = (
+  state:storeState.IGameState = storeState.initialGameState, 
+  action: actionTypes.gameActions):storeState.IGameState => 
+{
   switch (action.type) {
     case actionTypes.TOGGLE_RESULTS   : return toggleResults(state);
     case actionTypes.CLEAR_HISTORY    : return updateObject(state, {results: false, history: []});
